@@ -97,9 +97,6 @@ Plug 'othree/javascript-libraries-syntax.vim'
 " Node.vim
 Plug 'moll/vim-node'                  " Node.js
 
-" vim-shell
-Plug 'vim-scripts/vim-shell'          " Shell / Bash
-
 " bash-support
 Plug 'vim-scripts/bash-support.vim'   " Support Bash
 
