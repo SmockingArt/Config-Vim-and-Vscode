@@ -110,6 +110,3 @@ nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :FZF<CR>
 nnoremap <C-p> :Ag<Space>
 nnoremap <C-t> :TagbarToggle<CR>
-
-" Configuration FZF
-let $FZF_DEFAULT_COMMAND = 'ag -l --nocolor --nogroup --hidden --follow --ignore .git -g ""'
