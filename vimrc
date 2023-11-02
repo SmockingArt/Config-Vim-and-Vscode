@@ -131,6 +131,9 @@ autocmd FileType html,css,javascript inoremap <C-y>, ,emmet#expandAbbrIntelligen
 " Configuration des raccourcis clavier pour bash-support
 let g:BASHsupport_map_keys = 0
 
+" Configuration du themes Airline
+let g:airline_theme = 'wombat'
+
 " --------------------------------------------------------------
 " Touch
 " --------------------------------------------------------------
@@ -140,8 +143,12 @@ nnoremap <F2> :w<CR>
 nnoremap <F3> :q<CR>
 nnoremap <F4> :wq<CR>
 nnoremap <F5> :wa<CR>
+nnoremap <F6>c :NerdComment<CR>
+nnoremap <F7>cu :NerdComent<CR>
 " ---
 nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-b> :NERDTreeFind<CR>
 nnoremap <C-f> :FZF<CR>
+nnoremap <C-p> :CtrlP<CR>
 nnoremap <C-p> :Ag<Space>
 nnoremap <C-t> :TagbarToggle<CR>
