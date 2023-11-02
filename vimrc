@@ -1,25 +1,23 @@
-" Utiliser Vim-Plug pour gérer les plugins
-call plug#begin('~/.vim/plugged')
+" --------------------------------------------------------------
+" Config
+" --------------------------------------------------------------
 
-" Plugins
-Plug 'tpope/vim-sensible'             " Configurations sensibles par défaut
-Plug 'tpope/vim-fugitive'             " Interface Git
-Plug 'scrooloose/nerdtree'            " Explorateur de fichiers
-Plug 'Valloric/YouCompleteMe'         " Complétion intelligente
-Plug 'airblade/vim-gitgutter'         " Signes de modification Git
-Plug 'majutsushi/tagbar'              " Afficher la structure du code
-Plug 'preservim/nerdcommenter'        " Commenter/Décommenter rapidement
-Plug 'junegunn/fzf'                   " Recherche rapide de fichiers
-Plug 'junegunn/fzf.vim'               " Intégration de FZF avec Vim
-Plug 'tpope/vim-surround'             " Maniement des délimiteurs
-Plug 'elixir-editors/vim-elixir'      " Prise en charge d'Elixir
+" Activer les sauvegardes
+set backup
+set backupdir=~/.vim/backups
 
-" Activer tous les plugins installés
-call plug#end()
+" Activer l'enregistrement automatique
+set autowrite
+set autowriteall
+
+" Activer les numéros de ligne
+set number
+
+" Activer la corespondance des parenthèses
+set showmatch
 
 " Configuration générale
 syntax enable
-set number
 set relativenumber
 set autoindent
 set tabstop=4
@@ -27,7 +25,6 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set cursorline
-set showmatch
 set incsearch
 set hlsearch
 set ignorecase
@@ -36,11 +33,53 @@ set ruler
 set laststatus=2
 set mouse=a
 
-" Raccourcis clavier
-nnoremap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-f> :FZF<CR>
-nnoremap <C-p> :Ag<Space>
-nnoremap <C-t> :TagbarToggle<CR>
+" --------------------------------------------------------------
+" Plugins
+" --------------------------------------------------------------
+
+"Activer Vim-plug
+if empty(glob('~/.vim:autoload/plug.vim))
+  silent !curl -fL ~/.vim/autoload/plug.vim --creat-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Utiliser Vim-Plug pour gérer les plugins
+call plug#begin('~/.vim/plugged')
+
+" --- Plugins ---
+" NERDTree
+Plug 'scrooloose/nerdtree'            " Explorateur de fichiers
+
+" CtrlP
+plug 'ctrlpvim/ctrlp.vim'             " Recherche rapide de fichiers
+
+" YourCompleteMe
+plug 'Valloric/YouCompleteMe'         " Autocomplétion intelligente
+
+" Nerdcommenter
+Plug 'preservim/nerdcommenter'        " Commenter/Décommenter rapidement
+
+" Surround
+Plug 'tpope/vim-surround'             " Maniement des délimiteurs
+
+" Tagbar
+Plug 'majutsushi/tagbar'              " Afficher la structure du code
+
+" Figitive
+Plug 'tpope/vim-fugitive'             " Intégration Git
+
+" Gitgutter
+Plug 'airblade/vim-gitgutter'         " Affiche les modification Git
+
+" Airline
+plug 'vim-airline/vim-airline         " Barre de statut amélioréé
+plug 'vim-airline/vim-airline-themes
+
+" Sensbile (désactiver par défault)
+" Plug 'tpope/vim-sensible'             " Configurations sensibles par défaut
+
+" Activer tous les plugins installés
+call plug#end()
 
 " Configuration des plugins spécifiques
 " (Veuillez consulter la documentation de chaque plugin pour une configuration détaillée)
@@ -56,6 +95,21 @@ let g:gitgutter_sign_removed = '-'
 " Configuration NERDCommenter
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
+
+" --------------------------------------------------------------
+" Touch
+" --------------------------------------------------------------
+
+" Raccourcis clavier
+nnoremap <F2> :w<CR>
+nnoremap <F3> :q<CR>
+nnoremap <F4> :wq<CR>
+nnoremap <F5> :wa<CR>
+" ---
+nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <C-f> :FZF<CR>
+nnoremap <C-p> :Ag<Space>
+nnoremap <C-t> :TagbarToggle<CR>
 
 " Configuration FZF
 let $FZF_DEFAULT_COMMAND = 'ag -l --nocolor --nogroup --hidden --follow --ignore .git -g ""'
