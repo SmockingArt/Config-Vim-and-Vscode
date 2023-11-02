@@ -75,8 +75,24 @@ Plug 'airblade/vim-gitgutter'         " Affiche les modification Git
 plug 'vim-airline/vim-airline         " Barre de statut amélioréé
 plug 'vim-airline/vim-airline-themes
 
+" Emmet-vim
+Plug 'mattn/emmet-vim'                " HTML / CSS
+
+" javascript-libraries-syntax pour JavaScript
+Plug 'othree/javascript-libraries-syntax.vim'
+
+" Node.vim
+Plug 'moll/vim-node'                  " Node.js
+
+" vim-shell
+Plug 'vim-scripts/vim-shell'          " Shell / Bash
+
+" bash-support
+Plug 'vim-scripts/bash-support.vim'   " Support Bash
+
 " Sensbile (désactiver par défault)
-" Plug 'tpope/vim-sensible'             " Configurations sensibles par défaut
+" Plug 'tpope/vim-sensible'           " Configurations sensibles par défaut
+
 
 " Activer tous les plugins installés
 call plug#end()
@@ -95,6 +111,12 @@ let g:gitgutter_sign_removed = '-'
 " Configuration NERDCommenter
 let g:NERDSpaceDelims = 1
 let g:NERDDefaultAlign = 'left'
+
+" Configuration des raccourcis clavier pour emmet-vim
+autocmd FileType html,css,javascript inoremap <C-y>, ,emmet#expandAbbrIntelligent('<C-y>,', 'in', 'html')
+
+" Configuration des raccourcis clavier pour bash-support
+let g:BASHsupport_map_keys = 0
 
 " --------------------------------------------------------------
 " Touch
