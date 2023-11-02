@@ -27,6 +27,8 @@ set splitright
 " Activer l'auto correcteur
 set spell
 set spelllang=en
+set spellfile=~/.vim/spell/fr.utf-8.add
+set spelllang=fr
 
 " Options générales
 set autoindent
@@ -83,8 +85,8 @@ Plug 'tpope/vim-fugitive'             " Intégration Git
 Plug 'airblade/vim-gitgutter'         " Affiche les modification Git
 
 " Airline
-Plug 'vim-airline/vim-airline         " Barre de statut amélioréé
-Plug 'vim-airline/vim-airline-themes
+Plug 'vim-airline/vim-airline'        " Barre de statut amélioréé
+Plug 'vim-airline/vim-airline-themes'
 
 " Emmet-vim
 Plug 'mattn/emmet-vim'                " HTML / CSS
