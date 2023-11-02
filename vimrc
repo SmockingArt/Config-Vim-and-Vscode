@@ -53,6 +53,9 @@ Plug 'scrooloose/nerdtree'            " Explorateur de fichiers
 " CtrlP
 plug 'ctrlpvim/ctrlp.vim'             " Recherche rapide de fichiers
 
+" vim-devicons
+Plug 'ryanoasis/vim-devicons'         " pour des icônes de fichiers
+
 " YourCompleteMe
 plug 'Valloric/YouCompleteMe'         " Autocomplétion intelligente
 
@@ -89,6 +92,9 @@ Plug 'vim-scripts/vim-shell'          " Shell / Bash
 
 " bash-support
 Plug 'vim-scripts/bash-support.vim'   " Support Bash
+
+" vim-markdown
+Plug 'plasticboy/vim-markdown'        " une meilleure prise en charge de Markdown
 
 " Sensbile (désactiver par défault)
 " Plug 'tpope/vim-sensible'           " Configurations sensibles par défaut
