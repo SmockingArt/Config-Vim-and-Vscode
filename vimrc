@@ -12,18 +12,26 @@ set autowriteall
 
 " Activer les numéros de ligne
 set number
+set relativenumber
 
 " Activer la corespondance des parenthèses
 set showmatch
 
-" Configuration générale
+" Activer la coloration syntaxique
 syntax enable
-set relativenumber
+
+" Activer les onglets et fenêtres
+set splitbelow
+set splitright
+
+" Activer l'auto correcteur
+set spell
+set spelllang=en
+
+" Options générales
 set autoindent
 set tabstop=4
 set shiftwidth=4
-set expandtab
-set smarttab
 set cursorline
 set incsearch
 set hlsearch
