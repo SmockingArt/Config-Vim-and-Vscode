@@ -45,9 +45,9 @@ set mouse=a
 " Plugins
 " --------------------------------------------------------------
 
-"Activer Vim-plug
-if empty(glob('~/.vim:autoload/plug.vim))
-  silent !curl -fL ~/.vim/autoload/plug.vim --creat-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Activer Vim-plug
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -59,13 +59,13 @@ call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'            " Explorateur de fichiers
 
 " CtrlP
-plug 'ctrlpvim/ctrlp.vim'             " Recherche rapide de fichiers
+Plug 'ctrlpvim/ctrlp.vim'             " Recherche rapide de fichiers
 
 " vim-devicons
 Plug 'ryanoasis/vim-devicons'         " pour des icônes de fichiers
 
 " YourCompleteMe
-plug 'Valloric/YouCompleteMe'         " Autocomplétion intelligente
+Plug 'Valloric/YouCompleteMe'         " Autocomplétion intelligente
 
 " Nerdcommenter
 Plug 'preservim/nerdcommenter'        " Commenter/Décommenter rapidement
@@ -83,8 +83,8 @@ Plug 'tpope/vim-fugitive'             " Intégration Git
 Plug 'airblade/vim-gitgutter'         " Affiche les modification Git
 
 " Airline
-plug 'vim-airline/vim-airline         " Barre de statut amélioréé
-plug 'vim-airline/vim-airline-themes
+Plug 'vim-airline/vim-airline         " Barre de statut amélioréé
+Plug 'vim-airline/vim-airline-themes
 
 " Emmet-vim
 Plug 'mattn/emmet-vim'                " HTML / CSS
