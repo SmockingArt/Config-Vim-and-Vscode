@@ -30,6 +30,13 @@ set spelllang=en
 set spellfile=~/.vim/spell/fr.utf-8.add
 set spelllang=fr
 
+" Pliage de code (ou Dépliage)
+set foldmethod=syntax
+"set folmethod=indent
+
+" Copier Coller
+set clipboard=unnamedplus
+
 " Options générales
 set autoindent
 set tabstop=4
@@ -78,6 +85,9 @@ Plug 'tpope/vim-surround'             " Maniement des délimiteurs
 " Tagbar
 Plug 'majutsushi/tagbar'              " Afficher la structure du code
 
+" ultisnips
+Plug 'SirVer/ultisnips'               " Gestion des snippets
+
 " Figitive
 Plug 'tpope/vim-fugitive'             " Intégration Git
 
@@ -107,14 +117,14 @@ Plug 'plasticboy/vim-markdown'        " une meilleure prise en charge de Markdow
 " Plug 'tpope/vim-sensible'           " Configurations sensibles par défaut
 
 
-" Activer tous les plugins installés
+" Activer tous les plugins installés - commande :PlugInstall
 call plug#end()
 
 " Configuration des plugins spécifiques
 " (Veuillez consulter la documentation de chaque plugin pour une configuration détaillée)
 
 " Activer la complétion intelligente YouCompleteMe
-let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/.ycm_extra_conf.py'
 
 " Configuration de GitGutter
 let g:gitgutter_sign_added = '+'
@@ -143,12 +153,12 @@ nnoremap <F2> :w<CR>
 nnoremap <F3> :q<CR>
 nnoremap <F4> :wq<CR>
 nnoremap <F5> :wa<CR>
-nnoremap <F6>c :NerdComment<CR>
+nnoremap <F6>c :NERDComment<CR>
 nnoremap <F7>cu :NerdComent<CR>
 " ---
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-b> :NERDTreeFind<CR>
 nnoremap <C-f> :FZF<CR>
 nnoremap <C-p> :CtrlP<CR>
-nnoremap <C-p> :Ag<Space>
+nnoremap <C-m> :Ag<Space>
 nnoremap <C-t> :TagbarToggle<CR>
