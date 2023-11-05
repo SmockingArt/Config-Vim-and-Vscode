@@ -37,7 +37,11 @@ set foldmethod=syntax
 " Copier Coller
 set clipboard=unnamedplus
 
+" Font
+" set guifont=DroitSansMono\Nerd\Font\11 (pluging Nerd-FOnt)
+
 " Options générales
+set encoding=UTF-8
 set autoindent
 set tabstop=4
 set shiftwidth=4
@@ -120,29 +124,101 @@ Plug 'plasticboy/vim-markdown'        " une meilleure prise en charge de Markdow
 " Activer tous les plugins installés - commande :PlugInstall
 call plug#end()
 
+" --------------------------------------------------------------
 " Configuration des plugins spécifiques
 " (Veuillez consulter la documentation de chaque plugin pour une configuration détaillée)
+" --------------------------------------------------------------
 
-" Activer la complétion intelligente YouCompleteMe
+" NERDTREE - Configuration
+(Aucune config supplémentaire)
+
+" CtrlP - Configuration
+(Aucune config supplémentaire)
+
+" Vim-devicons - Configuration
+  " loading the plugin
+let g:webdevicons_enable = 1
+  " adding the flags to NERDTree
+let g:webdevicons_enable_nerdtree = 1
+  " adding to vim-airline's statusline
+let g:webdevicons_enable_airline_statusline = 1
+  " ctrlp glyphs
+let g:webdevicons_enable_ctrlp = 1
+  " turn on/off file node glyph decorations (not particularly useful)
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+  " Force extra padding in NERDTree so that the filetype icons line up vertically
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+  " whether or not to show the nerdtree brackets around flags
+let g:webdevicons_conceal_nerdtree_brackets = 1
+  " The amount of space to use after the glyph character in vim-airline tabline(default '')
+let g:WebDevIconsTabAirLineAfterGlyphPadding = ' '
+
+
+" YouCompleteMe - Activer la complétion intelligente 
+   " suggestions automatique
 let g:ycm_global_ycm_extra_conf = '~/.vim/plugged/YouCompleteMe/.ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion = 1
+   "  Configurer les suggestions à partir de la liste de défilement
+" let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+   " une complétion avec Tab
+let g:ycm_key_list_select_completion = ['<Tab>']
+  " NERDCommenter - Configuration  (Par defaut <leader> est \)
+let g:NERDSpaceDelims = 1
+let g:NERDDefaultAlign = 'left'
+  " Create default mappings
+let g:NERDCreateDefaultMappings = 1
+  " Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+  " Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+  " Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+  " Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+  " Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+  " Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+  " Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+  " Enable NERDCommenterToggle to check all selected lines is commented or not 
+let g:NERDToggleCheckAllLines = 1
 
-" Configuration de GitGutter
+" Surround - Configuration
+  " Personnalisation des délimiteurs 
+"let g:surround_102 = "{\r}\r" (desactiver)
+  " Autres commandes utiles :
+  " ys : Ajouter un délimiteur.
+  " cs : Changer un délimiteur.
+  " ds : Supprimer un délimiteur.
+  " S : Entourer une ligne complète avec des délimiteurs.
+
+" Tagbar - Configuration
+(
+
+" Figitive - Configuration
+(Aucune config supplémentaire)
+
+" GitGutter - Configuration
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '*'
 let g:gitgutter_sign_removed = '-'
 
-" Configuration NERDCommenter
-let g:NERDSpaceDelims = 1
-let g:NERDDefaultAlign = 'left'
+" Airline - Configuration du themes 
+let g:airline_theme = 'wombat'
 
-" Configuration des raccourcis clavier pour emmet-vim
+" Emmet-vim - Configuration des raccourcis clavier
 autocmd FileType html,css,javascript inoremap <C-y>, ,emmet#expandAbbrIntelligent('<C-y>,', 'in', 'html')
 
-" Configuration des raccourcis clavier pour bash-support
+" Node.vim - Configuration
+(Aucune config supplémentaire)
+
+" Bash-support - Configuration des raccourcis clavier pour 
 let g:BASHsupport_map_keys = 0
 
-" Configuration du themes Airline
-let g:airline_theme = 'wombat'
+" Vim-Markdown - Configuration
+(Aucune config supplémentaire)
 
 " --------------------------------------------------------------
 " Touch
@@ -155,10 +231,10 @@ nnoremap <F4> :wq<CR>
 nnoremap <F5> :wa<CR>
 nnoremap <F6>c :NERDComment<CR>
 nnoremap <F7>cu :NerdComent<CR>
+nnoremap <F8> :TagbarToggle<CR>
 " ---
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-b> :NERDTreeFind<CR>
 nnoremap <C-f> :FZF<CR>
 nnoremap <C-p> :CtrlP<CR>
 nnoremap <C-m> :Ag<Space>
-nnoremap <C-t> :TagbarToggle<CR>
