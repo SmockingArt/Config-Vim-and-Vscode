@@ -130,10 +130,10 @@ call plug#end()
 " --------------------------------------------------------------
 
 " NERDTREE - Configuration
-(Aucune config supplémentaire)
+" (Aucune config supplémentaire)
 
 " CtrlP - Configuration
-(Aucune config supplémentaire)
+" (Aucune config supplémentaire)
 
 " Vim-devicons - Configuration
   " loading the plugin
@@ -249,7 +249,7 @@ let g:user_emmet_settings = {
 \}
 
 " Node.vim - Configuration
-(Aucune config supplémentaire)
+" (Aucune config supplémentaire)
 
 " Bash-support - Configuration des raccourcis clavier pour 
 let g:BASHsupport_map_keys = 0
@@ -291,6 +291,6 @@ nnoremap <Leader>gP :Gpull<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gl :Glog<CR>
----
+" ---
 nnoremap <leader>md :MarkdownPreview<CR>
 nnoremap <leader>mp :MarkdownPreviewStop<CR>
