@@ -1,3 +1,3 @@
-# Configuration Vim Personnalisée
+# Configuration Vim & VScode Personnalisée
 
 Hello World !
