@@ -92,7 +92,7 @@ Plug 'majutsushi/tagbar'              " Afficher la structure du code
 " ultisnips
 Plug 'SirVer/ultisnips'               " Gestion des snippets
 
-" Figitive
+" Fugitive
 Plug 'tpope/vim-fugitive'             " Intégration Git
 
 " Gitgutter
@@ -195,10 +195,24 @@ let g:NERDToggleCheckAllLines = 1
   " S : Entourer une ligne complète avec des délimiteurs.
 
 " Tagbar - Configuration
-(
+  " Configuration des couleurs pour Tagbar
+let g:tagbar_autofocus = 1
+let g:tagbar_ctags_bin = 'ctags'
+let g:tagbar_color_scheme = 'monokai'
+let g:tagbar_bg_ctags = ''
+let g:tagbar_bg_error = ''
+let g:tagbar_bg_inherit = ''
+let g:tagbar_bg_modifier = ''
 
-" Figitive - Configuration
-(Aucune config supplémentaire)
+" Unerversal Ctag - Configuration
+"let g:tagbar_ctags_bin = 'ctags'  " Utilisez cette ligne pour l'ancien ctags
+  " OU
+let g:tagbar_ctags_bin = 'ctags'  " Utilisez cette ligne pour Universal Ctags
+
+" Fugitive - Configuration
+let g:fugitive_statusline = 'vertical'
+let g:fugitive_statusline_width = 30
+au FileType fugitive setlocal syntax=git
 
 " GitGutter - Configuration
 let g:gitgutter_sign_added = '+'
@@ -209,7 +223,30 @@ let g:gitgutter_sign_removed = '-'
 let g:airline_theme = 'wombat'
 
 " Emmet-vim - Configuration des raccourcis clavier
-autocmd FileType html,css,javascript inoremap <C-y>, ,emmet#expandAbbrIntelligent('<C-y>,', 'in', 'html')
+"let g:user_emmet_mode='n'    "only enable normal mode functions.
+"let g:user_emmet_mode='inv'  "enable all functions, which is equal to
+"let g:user_emmet_mode='a'    "enable all function in all mode.
+autocmd FileType html,css,javascript inoremap <C-y>, <C-y>,
+let g:user_emmet_settings = {
+\  'variables': {'lang': 'ja'},
+\  'html': {
+\    'default_attributes': {
+\      'option': {'value': v:null},
+\      'textarea': {'id': v:null, 'name': v:null, 'cols': 10, 'rows': 10},
+\    },
+\    'snippets': {
+\      'html:5': "<!DOCTYPE html>\n"
+\              ."<html lang=\"${lang}\">\n"
+\              ."<head>\n"
+\              ."\t<meta charset=\"${charset}\">\n"
+\              ."\t<title></title>\n"
+\              ."\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+\              ."</head>\n"
+\              ."<body>\n\t${child}|\n</body>\n"
+\              ."</html>",
+\    },
+\  },
+\}
 
 " Node.vim - Configuration
 (Aucune config supplémentaire)
@@ -218,7 +255,15 @@ autocmd FileType html,css,javascript inoremap <C-y>, ,emmet#expandAbbrIntelligen
 let g:BASHsupport_map_keys = 0
 
 " Vim-Markdown - Configuration
-(Aucune config supplémentaire)
+autocmd FileType markdown setlocal spell
+autocmd FileType markdown setlocal textwidth=80
+autocmd FileType markdown setlocal spelllang=en_us
+"autocmd FileType markdown setlocal spelllang=en_fr
+autocmd FileType markdown setlocal colorcolumn=+1
+  " Autres commandes utiles :
+" :toc
+" :TableFormat
+" :Center
 
 " --------------------------------------------------------------
 " Touch
@@ -238,3 +283,14 @@ nnoremap <C-b> :NERDTreeFind<CR>
 nnoremap <C-f> :FZF<CR>
 nnoremap <C-p> :CtrlP<CR>
 nnoremap <C-m> :Ag<Space>
+" ---
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc :Gcommit -v<CR>
+nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gP :Gpull<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gl :Glog<CR>
+---
+nnoremap <leader>md :MarkdownPreview<CR>
+nnoremap <leader>mp :MarkdownPreviewStop<CR>
